@@ -1,17 +1,34 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <h2>Chaos MTG</h2>
+  <ModalPopup v-if="isPopupVisible"></ModalPopup>
+  <MainPage></MainPage>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import MainPage from "./pages/MainPage.vue";
+import ModalPopup from "./components/ModalPopup.vue";
+import { popup_state } from '@/js/popup.js';
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    MainPage,
+    ModalPopup
+  },
+  data() {
+    return {
+    }
+  },
+  computed: {
+    isPopupVisible() {
+      return popup_state.visible;
+    }
+  },
+  methods: {
+    test() {
+    }
+  },
+};
 </script>
 
 <style>
@@ -19,8 +36,9 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 </style>
