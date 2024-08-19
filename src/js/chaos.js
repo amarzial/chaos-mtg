@@ -19,6 +19,7 @@ export function roll(list_name) {
     for (let list of lst.lists) {
         if (list.name == list_name) {
             let elem = getRandom(list.list);
+            elem['list'] = list.name;
             history.unshift(elem);
             return elem;
         }
